@@ -2,7 +2,6 @@ package com.tigeranalytics.pricefeed.app.configuration;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
-import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,10 +31,10 @@ public class SwaggerConfig {
     @Bean
     public GroupedOpenApi privateApi() {
         return GroupedOpenApi.builder().group("private").pathsToMatch("/pricing-feed/v1/**").build();
-    }*/
+    }
 
     @Bean
     public GroupedOpenApi actuatorApi() {
         return GroupedOpenApi.builder().group("actuator").pathsToMatch(path).build();
-    }
+    }*/
 }
