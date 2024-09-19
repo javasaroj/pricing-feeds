@@ -1,0 +1,47 @@
+server:
+  port: 9091
+
+# Datasource & JPA
+spring:
+  application:
+    name: pricing-feed
+  datasource:
+    url: jdbc:postgresql://localhost:5432/pricefeed
+    driver-class-name: org.postgresql.Driver
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+  batch:
+    job:
+      enabled: false
+    jdbc:
+      initialize-schema: always
+
+# Actuator
+management:
+  endpoints:
+    web:
+      base-path: /actuator
+      path-mapping:
+        health: /health
+        info: /info
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+#Spring Doc
+springdoc:
+  api-docs:
+    enabled: true
+    path: /pricing-feed
+  swagger-ui:
+    path: /index.html
+    disable-swagger-default-url: true
+
