@@ -75,6 +75,7 @@ mvn spring-boot:run<br/>
 [Swagger UI]: http://localhost:9091/swagger-ui/index.html<br/>
 [Spring Doc API]: http://localhost:9091/pricing-feed<br/>
 [PgAdmin]: http://localhost:6060/browser/<br/>
+[prometheus]: http://localhost:9091/actuator/prometheus<br/>
 <h2>Documentation</h2>
 API Documentation: Access the Swagger UI for comprehensive API documentation.<br/>
 Spring Actuator: Provides monitoring and management features. Check the Spring Doc URL for details.<br/>
