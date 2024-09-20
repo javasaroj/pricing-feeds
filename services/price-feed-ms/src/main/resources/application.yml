@@ -45,6 +45,12 @@ management:
   endpoint:
     health:
       show-details: always
+    prometheus:
+      enabled: true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
 
 #Spring Doc
 springdoc:

@@ -7,6 +7,8 @@ import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
 
+import java.time.LocalDate;
+
 public class PricingFeedSpecification implements Specification<PricingFeed> {
 
     private final SearchCriteria criteria;
@@ -24,6 +26,10 @@ public class PricingFeedSpecification implements Specification<PricingFeed> {
         } else if (criteria.getOperation().equalsIgnoreCase("=")) {
             if (criteria.getKey().equalsIgnoreCase("storeId") || criteria.getKey().equalsIgnoreCase("sku") || criteria.getKey().equalsIgnoreCase("productName")) {
                 return builder.equal(builder.lower(root.get(criteria.getKey())), criteria.getValue().toString().toLowerCase());
+            } else if (criteria.getKey().equals("date")) {
+                return builder.equal(
+                        builder.function("DATE", LocalDate.class, root.get(criteria.getKey())),
+                        criteria.getValue());
             } else {
                 return builder.equal(root.get(criteria.getKey()), criteria.getValue());
             }
